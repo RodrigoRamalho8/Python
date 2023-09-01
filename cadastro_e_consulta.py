@@ -1,8 +1,8 @@
 import getpass
 
 class User:
-    def __init__(self, usuario, nome, senha, telefone, email):
-       self.usuario = usuario
+    def __init__(self, cpf, nome, senha, telefone, email):
+       self.cpf = cpf
        self.nome = nome
        self.senha = senha
        self.telefone = telefone
@@ -16,21 +16,21 @@ usuarios = []
     
 
 def procurar():
-    usuario = input("Insira um usuário para consultar: ")
+    cpf = input("Insira um CPF para consultar: ")
     for user in usuarios:
-        if user.usuario == usuario:
+        if user.cpf == cpf:
             print(user)
             return
         print("Usuário não encontrado.")
 
 def cadastrar():
-    usuario = input("Cadastre seu usuário: ")
+    cpf = input("Cadastre seu CPF: ")
     nome = input("Cadastre seu nome: ")
-    senha = getpass.getpass("Cadastre sua senha: ")
+    senha = getpass.getpass("Cadastre sua senha: ")1
     telefone = input("Cadastre seu telefone: ")
     email = input("Cadastre seu email: ")
 
-    novo_usuario = User(usuario, nome, senha, telefone, email)
+    novo_usuario = User(cpf, nome, senha, telefone, email)
     usuarios.append(novo_usuario)
     print("Usuário cadastrado com sucesso!")
 
