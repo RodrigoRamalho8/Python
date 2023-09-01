@@ -47,16 +47,6 @@ def menu():
     escolha = int(input())
     return escolha
 
-def escolher(escolha):
-    if (escolha == 1):
-        cadastrar()
-    if (escolha == 2):
-        procurar()
-    if (escolha == 3):
-        exit()
-    else:
-        print("Escolha inválida!")
-        escolher(escolha)
 while True:
     escolha = menu()
 
