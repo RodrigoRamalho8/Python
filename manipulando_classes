@@ -1,0 +1,47 @@
+import datetime
+
+
+class Conta:
+    def __init__(self, nome, cpf):
+        self.nome = nome
+        self.cpf = cpf
+        self.saldo = 0
+
+    def depositar(self, valor):
+        self.saldo += valor
+        print(f"Depósito feito com sucesso!")
+        extrato.append(f"Depósito feito no dia {datetime.datetime.now()}, no valor de R${valor}")
+
+    def sacar(self, valor):
+        if (self.saldo < valor):
+            print("Você não tem saldo suficiente.")
+        else:
+            self.saldo -= valor
+            print(f"Saque feito com sucesso, saldo atual de: R${self.saldo}")
+            extrato.append(f"Saque feito no dia {datetime.datetime.now()}, no valor de R${valor}")
+
+
+
+extrato = []
+
+    
+conta_do_rodrigo = Conta("Rodrigo", "07713297170")
+
+
+conta_do_rodrigo.depositar(1500)
+conta_do_rodrigo.depositar(1500)
+conta_do_rodrigo.depositar(1500)
+conta_do_rodrigo.depositar(1500)
+conta_do_rodrigo.depositar(1500)
+conta_do_rodrigo.depositar(1500)
+
+conta_do_rodrigo.sacar(1200)
+conta_do_rodrigo.sacar(800)
+conta_do_rodrigo.sacar(1000)
+
+conta_do_rodrigo.depositar(10)
+conta_do_rodrigo.sacar(153)
+conta_do_rodrigo.sacar(511)
+
+for i in extrato:
+    print(i)
