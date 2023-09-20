@@ -47,7 +47,10 @@ def menu():
     escolha = int(input())
     return escolha
 
-while True:
+
+escolha = 0
+
+while escolha != 3:
     escolha = menu()
 
 
@@ -55,8 +58,6 @@ while True:
         cadastrar()
     elif escolha == 2:
         procurar()
-    elif escolha == 3:
-        break
     else:
         print("Escolha inválida!")
 
