@@ -1,4 +1,5 @@
 import datetime
+from enum import Enum
 
 
 class Conta:
@@ -6,11 +7,14 @@ class Conta:
         self.nome = nome
         self.cpf = cpf
         self.saldo = 0
+        self.extrato = []
 
     def depositar(self, valor):
         self.saldo += valor
         print(f"Depósito feito com sucesso!")
-        extrato.append(f"Depósito feito no dia {datetime.datetime.now()}, no valor de R${valor}")
+        data_deposito = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        self.extrato.append(f"Deposito: {valor:,.2f}  {data_deposito}")
+
 
     def sacar(self, valor):
         if (self.saldo < valor):
@@ -18,11 +22,22 @@ class Conta:
         else:
             self.saldo -= valor
             print(f"Saque feito com sucesso, saldo atual de: R${self.saldo}")
-            extrato.append(f"Saque feito no dia {datetime.datetime.now()}, no valor de R${valor}")
+            data_saque = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+            self.extrato.append(f"Saque {valor:,.2f} {data_saque}")
+
+    def consultaSaldo(self):
+        print(f"Saldo de R$ {self.saldo:,.2f}")
 
 
 
-extrato = []
+
+class Extrato(Enum):
+    Saque = 1
+    Deposito =2
+    
+
+
+
 
     
 conta_do_rodrigo = Conta("Rodrigo", "07713297170")
@@ -43,5 +58,8 @@ conta_do_rodrigo.depositar(10)
 conta_do_rodrigo.sacar(153)
 conta_do_rodrigo.sacar(511)
 
-for i in extrato:
+for i in conta_do_rodrigo.extrato:
     print(i)
+
+
+conta_do_rodrigo.consultaSaldo()
