@@ -36,11 +36,11 @@ class Extrato(Enum):
     Deposito =2
     
 
-
+#eu faria dessa forma se liga
 
 
     
-conta_do_rodrigo = Conta("Rodrigo", "07713297170")
+conta_do_rodrigo = Conta("Rodrigo", "15958489245")
 
 
 conta_do_rodrigo.depositar(1500)
